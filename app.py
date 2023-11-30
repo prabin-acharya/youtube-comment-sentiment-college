@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
 import numpy as np
@@ -157,7 +157,6 @@ def predict_emotion():
         predicted_class = class_names[np.argmax(pred)]
 
         return jsonify({'message': message, 'predicted_emotion': predicted_class})
-
 
 if __name__ == '__main__':
     app.run(port=5000)
